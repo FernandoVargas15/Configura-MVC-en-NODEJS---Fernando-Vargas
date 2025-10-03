@@ -1,0 +1,209 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: #f9fafb;
+  color: #111827;
+}
+
+/*Anular estilos default de Vite */
+#root {
+  max-width: none !important;
+  padding: 0 !important;
+  text-align: initial !important;
+  width: 100% !important;
+}
+
+/* ===== Página ===== */
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+  padding: 32px 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ===== Encabezado ===== */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0 0 24px;
+  color: #3f3f46;
+}
+
+/* ===== Layout centrado en dos columnas ===== */
+.layout {
+  display: grid;
+  grid-template-columns: 380px 650px; 
+  gap: 24px;
+  margin: 24px auto 0;
+  justify-content: center;
+  align-items: start;
+}
+
+.col { min-width: 0; }
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 640px;
+    margin: 16px auto 0;
+  }
+}
+
+/* ===== Tarjetas ===== */
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.card-title {
+  margin: 0 0 12px;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ===== Formulario ===== */
+.form { text-align: left; }
+
+.mb-3 { margin-bottom: 14px; }
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #374151;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.form-control,
+.form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background: #fff;
+  color: #111827;
+  outline: none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.form-control:focus,
+.form-select:focus {
+  border-color: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(59,130,246,.2);
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+}
+.form-check-input[type="radio"],
+.form-check-input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #2563eb;
+  cursor: pointer;
+}
+.form-check-label {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* Switch */
+.form-check.form-switch .form-check-input[type="checkbox"] {
+  width: 38px;
+  height: 22px;
+  appearance: none;
+  border-radius: 999px;
+  position: relative;
+  background: #e5e7eb;
+  transition: background .2s ease;
+}
+.form-check.form-switch .form-check-input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 16px; height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left .2s ease;
+}
+.form-check.form-switch .form-check-input[type="checkbox"]:checked {
+  background: #2563eb;
+}
+.form-check.form-switch .form-check-input[type="checkbox"]:checked::after {
+  left: 19px;
+}
+
+/* ===== Botones ===== */
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.2;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: filter .15s ease, transform .02s ease;
+}
+.btn:active { transform: scale(0.99); }
+
+.btn_add { background-color: #198754; color: #fff; }
+.btn_add:hover { filter: brightness(0.95); }
+
+.btn-info { background-color: #54b4d3; color: #fff; }
+.btn-info:hover { filter: brightness(0.95); }
+
+.btn-danger { background-color: #dc3545; color: #fff; }
+.btn-danger:hover { filter: brightness(0.95); }
+
+.d-grid { display: grid; }
+.gap-2 { gap: 8px; }
+
+/* ===== Tabla ===== */
+.tabla-wrapper { overflow-x: auto; }
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 8px;
+  table-layout: auto;
+}
+.tabla thead th {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+}
+.tabla td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #f3f4f6;
+  color: #111827;
+  vertical-align: middle;
+}
+.td-center { text-align: center; color: #6b7280; }
+.acciones { display: flex; gap: 8px; }

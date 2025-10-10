@@ -28,28 +28,26 @@ export default function ListaEstudiantes({
                 </td>
               </tr>
             ) : (
-              students.map((al, idx) => (
-                <tr key={`${al.email_alumno}-${idx}`}>
+              students.map((al) => (
+                <tr key={al.id ?? al.email_alumno}>
                   <td>{al.nombre_alumno}</td>
                   <td>{al.email_alumno}</td>
-                  <td>{al.curso_alumno}</td>
-                  <td>
-                    {al.sexo_alumno === "masculino" ? "Masculino" : "Femenino"}
-                  </td>
-                  <td>{al.hablaIngles ? "Sí" : "No"}</td>
+                  <td>{al.curso}</td>
+                  <td>{al.sexo === "masculino" ? "Masculino" : "Femenino"}</td>
+                  <td>{Number(al.habla_ingles) ? "Sí" : "No"}</td>
                   <td>
                     <div className="acciones">
                       <button
                         type="button"
                         className="btn btn-info"
-                        onClick={() => onEdit(al, idx)}
+                        onClick={() => onEdit(al)}
                       >
                         Editar
                       </button>
                       <button
                         type="button"
                         className="btn btn-danger"
-                        onClick={() => onDelete(idx)}
+                        onClick={() => onDelete(al.id)}
                       >
                         Eliminar
                       </button>
